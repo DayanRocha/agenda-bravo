@@ -1,0 +1,136 @@
+/* Esconde qualquer referência ao Lovable logo no carregamento */
+a[href*="lovable.dev"],
+iframe[src*="lovable.dev"],
+div[style*="Edit with Lovable"],
+.lovable-badge {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  z-index: -9999 !important;
+}
+
+/* Tailwind base layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0 98;
+    --foreground: 222 84 5;
+
+    --card: 0 0 100;
+    --card-foreground: 222 84 5;
+
+    --popover: 0 0 100;
+    --popover-foreground: 222 84 5;
+
+    --primary: 217 91 60;
+    --primary-foreground: 0 0 100;
+
+    --secondary: 210 40 92;
+    --secondary-foreground: 222 47 11;
+
+    --muted: 210 40 92;
+    --muted-foreground: 215 16 47;
+
+    --accent: 210 40 92;
+    --accent-foreground: 222 47 11;
+
+    --destructive: 0 84 60;
+    --destructive-foreground: 0 0 98;
+
+    --border: 214 32 91;
+    --input: 0 0 100;
+    --ring: 217 91 60;
+
+    --radius: 0.5rem;
+
+    /* Design System Extensions */
+    --primary-light: 213 94 68;
+    --primary-dark: 221 83 53;
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(213 94% 68%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 40% 92%));
+    --shadow-soft: 0 1px 3px 0 hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow-card: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -2px hsl(0 0% 0% / 0.1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0 98;
+
+    --sidebar-foreground: 240 5.3 26.1;
+
+    --sidebar-primary: 240 5.9 10;
+
+    --sidebar-primary-foreground: 0 0 98;
+
+    --sidebar-accent: 240 4.8 95.9;
+
+    --sidebar-accent-foreground: 240 5.9 10;
+
+    --sidebar-border: 220 13 91;
+
+    --sidebar-ring: 217.2 91.2 59.8;
+  }
+
+  .dark {
+    --background: 0 0 4;
+    --foreground: 0 0 98;
+
+    --card: 0 0 8;
+    --card-foreground: 0 0 95;
+
+    --popover: 0 0 8;
+    --popover-foreground: 0 0 95;
+
+    --primary: 213 94 68;
+    --primary-foreground: 0 0 4;
+
+    --secondary: 0 0 12;
+    --secondary-foreground: 0 0 90;
+
+    --muted: 0 0 16;
+    --muted-foreground: 0 0 70;
+
+    --accent: 0 0 20;
+    --accent-foreground: 0 0 95;
+
+    --destructive: 0 84 60;
+    --destructive-foreground: 0 0 98;
+
+    --border: 0 0 24;
+    --input: 0 0 12;
+    --ring: 213 94 68;
+    --sidebar-background: 0 0 2;
+    --sidebar-foreground: 0 0 92;
+    --sidebar-primary: 213 94 68;
+    --sidebar-primary-foreground: 0 0 4;
+    --sidebar-accent: 0 0 10;
+    --sidebar-accent-foreground: 0 0 88;
+    --sidebar-border: 0 0 16;
+    --sidebar-ring: 213 94 68;
+
+    /* Dark mode design extensions */
+    --primary-light: 217 91 72;
+    --primary-dark: 213 94 64;
+    --gradient-primary: linear-gradient(135deg, hsl(213 94% 68%), hsl(217 91% 72%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0 8), hsl(0 0 16));
+    --shadow-soft: 0 1px 3px 0 hsl(0 0% 0% / 0.5), 0 1px 2px -1px hsl(0 0% 0% / 0.5);
+    --shadow-card: 0 4px 6px -1px hsl(0 0% 0% / 0.5), 0 2px 4px -2px hsl(0 0% 0% / 0.5);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
