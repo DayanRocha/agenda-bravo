@@ -61,11 +61,10 @@ export default function Relatorios() {
     return months[parseInt(month)];
   }
 
-  // Gerar anos dinamicamente (ano atual + 1 ano futuro e 3 anos passados)
+  // Gerar anos dinamicamente (de 2020 até 2050)
   const generateYearOptions = () => {
-    const currentYear = new Date().getFullYear();
     const years = [];
-    for (let year = currentYear + 1; year >= currentYear - 3; year--) {
+    for (let year = 2050; year >= 2020; year--) {
       years.push(year.toString());
     }
     return years;
