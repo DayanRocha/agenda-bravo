@@ -100,6 +100,7 @@ export default function NovoRegistro() {
                     onSelect={(date) => date && setSelectedDate(date)}
                     initialFocus
                     className="pointer-events-auto"
+                    locale={ptBR}
                   />
                 </PopoverContent>
               </Popover>
