@@ -11,6 +11,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Plus, Edit, Trash2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useRegistros, type Registro } from "@/hooks/useRegistros";
+import { ptBR } from "date-fns/locale";
 
 export default function Agenda() {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date());
@@ -103,6 +104,7 @@ export default function Agenda() {
             selected={selectedDate}
             onSelect={setSelectedDate}
             className="rounded-lg"
+            locale={ptBR}
           />
         </Card>
 
