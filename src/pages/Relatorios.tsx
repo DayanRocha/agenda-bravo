@@ -434,6 +434,7 @@ export default function Relatorios() {
                       onSelect={(date) => date && setEditFormData({...editFormData, data: date})}
                       initialFocus
                       className="pointer-events-auto"
+                      locale={ptBR}
                     />
                   </PopoverContent>
                 </Popover>
