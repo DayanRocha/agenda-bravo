@@ -64,14 +64,14 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-muted p-4">
-      <Card className="w-full max-w-md p-8 shadow-card bg-gradient-card">
+    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+      <Card className="w-full max-w-md p-8 shadow-soft">
         <div className="text-center mb-8">
-          <div className="mx-auto w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mb-4">
-            <LogIn className="h-8 w-8 text-primary-foreground" />
+          <div className="mx-auto w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+            <LogIn className="h-7 w-7 text-primary" />
           </div>
-          <h1 className="text-3xl font-bold">Bem-vindo!</h1>
-          <p className="text-muted-foreground mt-2">Faça login para continuar</p>
+          <h1 className="text-2xl font-semibold">Bem-vindo</h1>
+          <p className="text-muted-foreground mt-1">Faça login para continuar</p>
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -120,7 +120,7 @@ export default function Login() {
 
           <Button 
             type="submit" 
-            className="w-full bg-gradient-primary shadow-soft"
+            className="w-full"
             disabled={isLoading}
           >
             {isLoading ? 'Entrando...' : 'Entrar'}

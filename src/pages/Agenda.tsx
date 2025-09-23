@@ -98,7 +98,7 @@ export default function Agenda() {
   return (
     <Layout title="Agenda">
       <div className="p-4 space-y-6">
-        <Card className="p-4 bg-gradient-card shadow-card">
+        <Card className="p-4 shadow-soft">
           <Calendar
             mode="single"
             selected={selectedDate}
@@ -120,11 +120,7 @@ export default function Agenda() {
                 }
               }}>
                 <DialogTrigger asChild>
-                  <Button 
-                    size="sm" 
-                    className="bg-gradient-primary shadow-soft"
-                    onClick={() => setIsDialogOpen(true)}
-                  >
+                  <Button size="sm" onClick={() => setIsDialogOpen(true)}>
                     <Plus size={16} className="mr-1" />
                     Adicionar
                   </Button>
@@ -174,7 +170,7 @@ export default function Agenda() {
                         </p>
                       </div>
                     )}
-                    <Button onClick={handleSaveRegistro} className="w-full bg-gradient-primary">
+                    <Button onClick={handleSaveRegistro} className="w-full">
                       {isEditMode ? 'Atualizar Registro' : 'Salvar Registro'}
                     </Button>
                   </div>

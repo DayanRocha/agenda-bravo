@@ -14,7 +14,7 @@ export const TabBar = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-card border-t border-border shadow-card z-50">
+    <nav aria-label="Navegação principal" className="fixed bottom-0 left-0 right-0 bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80 border-t border-border z-50 pb-[env(safe-area-inset-bottom)]">
       <div className="grid grid-cols-4 max-w-md mx-auto">
         {tabs.map((tab) => {
           const Icon = tab.icon;
@@ -25,27 +25,25 @@ export const TabBar = () => {
               key={tab.id}
               onClick={() => navigate(tab.path)}
               className={cn(
-                "flex flex-col items-center justify-center py-3 px-2 transition-all duration-200 active:scale-95",
+                "relative flex flex-col items-center justify-center h-14 px-2 transition-colors duration-200",
                 isActive 
                   ? "text-primary" 
                   : "text-muted-foreground hover:text-foreground"
               )}
+              aria-current={isActive ? "page" : undefined}
             >
               <Icon 
-                size={20} 
-                className={cn(
-                  "mb-1 transition-all duration-200",
-                  isActive && "scale-110"
-                )} 
+                size={20}
+                className="mb-1"
               />
               <span className="text-xs font-medium">{tab.label}</span>
               {isActive && (
-                <div className="absolute -top-0.5 left-1/2 transform -translate-x-1/2 w-8 h-0.5 bg-primary rounded-full" />
+                <div className="absolute -top-0.5 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-primary rounded-full" />
               )}
             </button>
           );
         })}
       </div>
-    </div>
+    </nav>
   );
 };

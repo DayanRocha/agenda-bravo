@@ -38,7 +38,7 @@ export default function Configuracoes() {
     <Layout title="Configurações">
       <div className="p-4 space-y-6">
         {/* Valor Padrão */}
-        <Card className="p-6 shadow-card">
+        <Card className="p-6 shadow-soft">
           <div className="flex items-center space-x-3 mb-4">
             <div className="p-2 bg-primary/10 rounded-lg">
               <DollarSign className="h-5 w-5 text-primary" />
@@ -64,7 +64,7 @@ export default function Configuracoes() {
         </Card>
 
         {/* Tema */}
-        <Card className="p-6 shadow-card">
+        <Card className="p-6 shadow-soft">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <div className="p-2 bg-primary/10 rounded-lg">
