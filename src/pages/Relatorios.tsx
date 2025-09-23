@@ -159,37 +159,28 @@ export default function Relatorios() {
     doc.setFontSize(20);
     doc.text(`Relatório - ${statsData.mesAtual}`, 20, 30);
     
-    // Estatísticas
+    // Resumo simplificado
+    doc.setFontSize(16);
+    doc.text('Resumo do Período:', 20, 60);
     doc.setFontSize(14);
-    doc.text('Resumo do Período:', 20, 50);
-    doc.setFontSize(12);
-    doc.text(`Dias trabalhados: ${statsData.diasTrabalhados}`, 20, 65);
-    doc.text(`Total de horas: ${statsData.totalHoras}h`, 20, 75);
-    doc.text(`Valor acumulado: R$ ${statsData.valorAcumulado.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`, 20, 85);
-    doc.text(`Total de registros: ${statsData.totalRegistros}`, 20, 95);
+    doc.text(`Quantidade de dias: ${statsData.diasTrabalhados}`, 20, 80);
+    doc.text(`Valor total: R$ ${statsData.valorAcumulado.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`, 20, 100);
     
-    // Lista de registros
-    doc.text('Registros:', 20, 115);
-    let yPos = 130;
-    
-    filteredRegistros.forEach((registro, index) => {
-      if (yPos > 270) {
-        doc.addPage();
-        yPos = 20;
-      }
-      
-      const data = new Date(registro.data).toLocaleDateString('pt-BR');
-      doc.text(`${data} - ${registro.horas}h × R$ ${registro.valorHora.toFixed(2)} = R$ ${registro.valorTotal.toFixed(2)}`, 20, yPos);
-      
-      if (registro.descricao) {
-        yPos += 8;
-        doc.setFontSize(10);
-        doc.text(`   ${registro.descricao}`, 20, yPos);
+    // Descrições únicas (se houver)
+    const descricoes = [...new Set(filteredRegistros.filter(r => r.descricao).map(r => r.descricao))];
+    if (descricoes.length > 0) {
+      doc.text('Descrições:', 20, 130);
+      let yPos = 150;
+      descricoes.forEach((descricao) => {
+        if (yPos > 270) {
+          doc.addPage();
+          yPos = 20;
+        }
         doc.setFontSize(12);
-      }
-      
-      yPos += 12;
-    });
+        doc.text(`• ${descricao}`, 25, yPos);
+        yPos += 15;
+      });
+    }
     
     // Salvar o PDF
     doc.save(`relatorio-${statsData.mesAtual.toLowerCase().replace(' ', '-')}.pdf`);
