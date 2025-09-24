@@ -64,6 +64,7 @@ export default function Relatorios() {
   // Gerar anos dinamicamente (de 2020 até 2050)
   const generateYearOptions = () => {
     const years = [];
+    // Gerar anos de 2050 até 2020 em ordem decrescente
     for (let year = 2050; year >= 2020; year--) {
       years.push(year.toString());
     }
